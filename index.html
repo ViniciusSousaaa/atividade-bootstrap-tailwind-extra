@@ -9,6 +9,19 @@
 <body>
 
   <header>
+    <nav class="bg-gray-800 text-white">
+      <div class="max-w-6xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between">
+        <a href="#" class="text-xl">UCSAL</a>
+        <button id="botaoMenu" type="button" class="lg:hidden border border-gray-500 rounded px-3 py-1 text-xl cursor-pointer" aria-controls="menu" aria-expanded="false" aria-label="Abrir menu">☰</button>
+        <ul id="menu" class="hidden w-full mt-2 lg:flex lg:w-auto lg:gap-4 lg:mt-0">
+          <li><a class="block py-2 text-gray-300 hover:text-white" href="#destaques">Destaques</a></li>
+          <li><a class="block py-2 text-gray-300 hover:text-white" href="#cursos">Cursos</a></li>
+          <li><a class="block py-2 text-gray-300 hover:text-white" href="#horarios">Horários</a></li>
+          <li><a class="block py-2 text-gray-300 hover:text-white" href="#contato">Contato</a></li>
+          <li><a class="block py-2 text-gray-300 hover:text-white" href="#inscricao">Inscrição</a></li>
+        </ul>
+      </div>
+    </nav>
   </header>
 
   <main class="max-w-6xl mx-auto px-4 my-6">
@@ -33,6 +46,17 @@
   <footer class="bg-gray-800 text-white text-center py-4">
     <p>Vinicius Sousa - Tópicos avançados em programação</p>
   </footer>
+
+  <script>
+    const botaoMenu = document.getElementById("botaoMenu");
+    const menu = document.getElementById("menu");
+
+    botaoMenu.addEventListener("click", () => {
+      menu.classList.toggle("hidden");
+      const aberto = !menu.classList.contains("hidden");
+      botaoMenu.setAttribute("aria-expanded", aberto);
+    });
+  </script>
 
 </body>
 </html>
