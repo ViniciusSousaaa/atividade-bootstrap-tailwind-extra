@@ -149,6 +149,23 @@
     </section>
 
     <section id="inscricao" class="mb-12">
+      <h2 class="text-3xl mb-4">Inscrição</h2>
+      <p class="mb-4">Clique no botão para confirmar sua inscrição no vestibular.</p>
+      <button id="abrirModal" type="button" class="bg-gray-800 text-white px-4 py-2 rounded hover:bg-gray-700 cursor-pointer">Quero me inscrever</button>
+
+      <dialog id="modalInscricao" class="m-auto w-11/12 max-w-md rounded backdrop:bg-black/50" aria-labelledby="tituloModal">
+        <div class="p-4">
+          <div class="flex items-center justify-between mb-4">
+            <h3 id="tituloModal" class="text-xl">Confirmar inscrição</h3>
+            <button type="button" class="fecharModal text-xl cursor-pointer" aria-label="Fechar">✕</button>
+          </div>
+          <p class="mb-4">Deseja confirmar sua inscrição no vestibular da UCSAL?</p>
+          <div class="flex justify-end gap-2">
+            <button type="button" class="fecharModal bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-400 cursor-pointer">Fechar</button>
+            <button type="button" class="fecharModal bg-gray-800 text-white px-4 py-2 rounded hover:bg-gray-700 cursor-pointer">Confirmar</button>
+          </div>
+        </div>
+      </dialog>
     </section>
 
   </main>
@@ -186,6 +203,20 @@
 
     pontos.forEach((ponto, indice) => {
       ponto.addEventListener("click", () => mostrarSlide(indice));
+    });
+
+    const modal = document.getElementById("modalInscricao");
+
+    document.getElementById("abrirModal").addEventListener("click", () => modal.showModal());
+
+    document.querySelectorAll(".fecharModal").forEach((botao) => {
+      botao.addEventListener("click", () => modal.close());
+    });
+
+    modal.addEventListener("click", (evento) => {
+      if (evento.target === modal) {
+        modal.close();
+      }
     });
   </script>
 
