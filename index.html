@@ -205,6 +205,8 @@
       ponto.addEventListener("click", () => mostrarSlide(indice));
     });
 
+    setInterval(() => mostrarSlide(slideAtual + 1), 5000);
+
     const modal = document.getElementById("modalInscricao");
 
     document.getElementById("abrirModal").addEventListener("click", () => modal.showModal());
